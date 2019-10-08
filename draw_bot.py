@@ -116,6 +116,13 @@ def on_chat(data):
     else:
         print(f"{data['id']} wrote > {data['message']}")
 
+@sio.on('lobbySpam')
+def on_lobbySpam():
+    """
+    When our chat messages get detected as spam and get blocked
+    """
+    print(f"Spam detected! You're sending too many messages.")
+
 @sio.on('lobbyPlayerConnected')
 def on_lobbyPlayerConnected(data):
     """
